@@ -11,8 +11,6 @@ const Skeleton = () => {
       <ToDoSkeletonUnit />
       <ToDoSkeletonUnit />
       <ToDoSkeletonUnit />
-      <ToDoSkeletonUnit />
-      <ToDoSkeletonUnit />
     </Layout>
   );
 };
@@ -22,7 +20,7 @@ export default Skeleton;
 const UnitLayout = styled.div`
   position: relative;
   width: 100%;
-  height: 18px;
+  height: 130px;
   background-color: var(--bg);
   border-radius: 10px;
   overflow: hidden;
@@ -55,4 +53,5 @@ const Layout = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
+  margin-top: 20px;
 `;

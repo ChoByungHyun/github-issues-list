@@ -6,36 +6,18 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Skeleton from "styles/Skeleton";
 import { Issue } from "type";
+import { fetchGitHubIssues } from "../api/getIssueList";
 
-function GetIssue() {
+function IssuesList() {
   const [issues, setIssues] = useState<Issue[]>([]);
   const [pageNumber, setPageNumber] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(false);
 
   const fetchIssues = async (page: number) => {
     setLoading(true);
-    try {
-      const response = await octokit.request(
-        `GET /repos/${REQUEST_INFO.OwnerName}/${REQUEST_INFO.RepoName}/issues?page=${page}&sort=comments`,
-        {
-          headers: {
-            "X-GitHub-Api-Version": "2022-11-28",
-          },
-        }
-      );
-      const fetchedIssues: Issue[] = response.data.map((issue: Issue) => ({
-        number: issue.number,
-        title: issue.title,
-        user: issue.user,
-        updated_at: issue.updated_at,
-        comments: issue.comments,
-      }));
-      setIssues((prevIssues) => [...prevIssues, ...fetchedIssues]);
-    } catch (error) {
-      console.error("Error fetching issues:", error);
-    } finally {
-      setLoading(false);
-    }
+    const fetchedIssues = await fetchGitHubIssues(page);
+    setIssues((prevIssues) => [...prevIssues, ...fetchedIssues]);
+    setLoading(false);
   };
 
   const handleScroll = () => {
@@ -63,17 +45,14 @@ function GetIssue() {
   return (
     <SIssueLayout>
       <ul>
-        {issues.length > 0 ? (
-          issues.map((issue, index) => (
-            <IssueItems
-              key={issue.number}
-              issue={issue}
-              showAD={index >= 3 && (index - 3) % 4 === 0}
-            />
-          ))
-        ) : (
-          <Skeleton></Skeleton>
-        )}
+        {issues.map((issue, index) => (
+          <IssueItems
+            key={issue.number}
+            issue={issue}
+            showAD={index >= 3 && (index - 3) % 4 === 0}
+          />
+        ))}
+        {loading && <Skeleton />}
       </ul>
     </SIssueLayout>
   );
@@ -83,4 +62,4 @@ const SIssueLayout = styled.div`
   flex-direction: column;
 `;
 
-export default GetIssue;
+export default IssuesList;

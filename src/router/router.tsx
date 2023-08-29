@@ -1,7 +1,7 @@
 import App from "App";
-import Error from "pages/Error";
-import IssueDetail from "pages/IssueDetail";
-import IssueList from "pages/IssueList";
+import ErrorPage from "pages/ErrorPage";
+import IssueDetailPage from "pages/IssueDetailPage";
+import IssueListPage from "pages/IssueListPage";
 import { createBrowserRouter } from "react-router-dom";
 const router = createBrowserRouter([
   {
@@ -10,17 +10,17 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <IssueList />,
+        element: <IssueListPage />,
       },
       {
         path: "issue/:num",
-        element: <IssueDetail />,
+        element: <IssueDetailPage />,
       },
     ],
   },
   {
     path: "*",
-    element: <Error />,
+    element: <ErrorPage />,
   },
 ]);
 

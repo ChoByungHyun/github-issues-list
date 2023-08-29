@@ -21,12 +21,12 @@ const IssueItems: React.FC<IssueItemsProps> = ({ issue, showAD }) => {
       </SIssueList>
       <div>
         {showAD && (
-          <Link to="https://www.wanted.co.kr/">
-            <img
+          <SLink to="https://www.wanted.co.kr/">
+            <SBennerImg
               alt="광고이미지"
               src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Flogo_wanted_black.png&w=110&q=100"
             />
-          </Link>
+          </SLink>
         )}
       </div>
     </>
@@ -44,4 +44,14 @@ const SIssueList = styled.li`
   }
 `;
 
+const SLink = styled(Link)`
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+`;
+const SBennerImg = styled.img`
+  width: 100%;
+
+  object-fit: cover;
+`;
 export default IssueItems;
