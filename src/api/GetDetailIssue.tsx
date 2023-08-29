@@ -1,24 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { Octokit } from "octokit";
-import { Issue, IssueDetail } from "type";
+import { IssueDetail } from "type";
 import IssueDetailItem from "components/IssueDetailItem";
 import { useParams } from "react-router-dom";
-const PersonalAccessToken = process.env.REACT_APP_GITHUB_TOKEN;
-const OwnerName = "facebook";
-const RepoName = "react";
+import { REQUEST_INFO } from "config";
+
 const octokit = new Octokit({
-  auth: PersonalAccessToken,
+  auth: REQUEST_INFO.PersonalAccessToken,
 });
 const GetDetailIssue = () => {
   const [issues, setIssues] = useState<IssueDetail>();
   const params = useParams();
-  console.log(params);
 
   useEffect(() => {
     const fetchIssues = async () => {
       try {
         const response = await octokit.request(
-          `GET /repos/${OwnerName}/${RepoName}/issues/${params.num}`,
+          `GET /repos/${REQUEST_INFO.OwnerName}/${REQUEST_INFO.RepoName}/issues/${params.num}`,
           {
             headers: {
               "X-GitHub-Api-Version": "2022-11-28",
@@ -34,7 +32,6 @@ const GetDetailIssue = () => {
           image: response.data.user.avatar_url,
           body: response.data.body,
         };
-        console.log(newIssue);
         setIssues(newIssue);
       } catch (error) {
         console.error("Error fetching issues:", error);
