@@ -1,7 +1,8 @@
+import GetIssues from "api/GetIssues";
 import React from "react";
 
 const IssueList = () => {
-  return <div>dd</div>;
+  return <GetIssues></GetIssues>;
 };
 
 export default IssueList;

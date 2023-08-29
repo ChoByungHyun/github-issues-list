@@ -1,7 +1,8 @@
+import GetDetailIssue from "api/GetDetailIssue";
 import React from "react";
 
 const IssueDetail = () => {
-  return <div></div>;
+  return <GetDetailIssue></GetDetailIssue>;
 };
 
 export default IssueDetail;
