@@ -18,7 +18,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
   /* Reset */
-  ${reset}
 
 
 
