@@ -4,6 +4,7 @@ import { IssueDetail } from "type";
 import IssueDetailItem from "components/IssueDetailItem";
 import { useParams } from "react-router-dom";
 import { REQUEST_INFO } from "config";
+import Skeleton from "styles/Skeleton";
 
 const octokit = new Octokit({
   auth: REQUEST_INFO.PersonalAccessToken,
@@ -40,7 +41,11 @@ const GetDetailIssue = () => {
 
     fetchIssues();
   }, []);
-  return issues && <IssueDetailItem issue={issues}></IssueDetailItem>;
+  return issues ? (
+    <IssueDetailItem issue={issues}></IssueDetailItem>
+  ) : (
+    <Skeleton></Skeleton>
+  );
 };
 
 export default GetDetailIssue;

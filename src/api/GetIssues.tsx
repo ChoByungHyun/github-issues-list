@@ -4,6 +4,7 @@ import { useDebounce } from "hooks/useDebounce";
 import { Octokit } from "octokit";
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import Skeleton from "styles/Skeleton";
 import { Issue } from "type";
 
 function GetIssue() {
@@ -62,13 +63,17 @@ function GetIssue() {
   return (
     <SIssueLayout>
       <ul>
-        {issues.map((issue, index) => (
-          <IssueItems
-            key={issue.number}
-            issue={issue}
-            showAD={index >= 3 && (index - 3) % 4 === 0}
-          />
-        ))}
+        {issues.length > 0 ? (
+          issues.map((issue, index) => (
+            <IssueItems
+              key={issue.number}
+              issue={issue}
+              showAD={index >= 3 && (index - 3) % 4 === 0}
+            />
+          ))
+        ) : (
+          <Skeleton></Skeleton>
+        )}
       </ul>
     </SIssueLayout>
   );

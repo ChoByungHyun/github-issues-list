@@ -1,4 +1,5 @@
 import App from "App";
+import Error from "pages/Error";
 import IssueDetail from "pages/IssueDetail";
 import IssueList from "pages/IssueList";
 import { createBrowserRouter } from "react-router-dom";
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
         element: <IssueDetail />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <Error />,
   },
 ]);
 
