@@ -4,7 +4,7 @@ const SLayout = styled.div`
   position: relative;
   max-width: 900px;
   min-width: 400px;
-  height: calc(var(--vh, 1vh) * 100);
+  min-height: 100vh;
   margin: 0 auto;
   padding: 0 24px;
   box-sizing: border-box;

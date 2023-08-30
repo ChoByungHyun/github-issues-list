@@ -14,5 +14,6 @@ const SHeaderLayout = styled.header`
   font-size: 30px;
   width: 100%;
   text-align: center;
+  margin-bottom: 20px;
 `;
 export default Header;

@@ -11,7 +11,7 @@ interface IssueItemsProps {
 const IssueItems: React.FC<IssueItemsProps> = ({ issue, showAD }) => {
   const navigate = useNavigate();
   function goToIssueDetail() {
-    navigate(`/issue/${issue.number}`);
+    navigate(`/${issue.number}`);
   }
   const date = new Date(issue.created_at);
 
