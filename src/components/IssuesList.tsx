@@ -1,7 +1,5 @@
 import IssueItems from "components/IssueItems";
-import { REQUEST_INFO, octokit } from "config";
 import { useDebounce } from "hooks/useDebounce";
-import { Octokit } from "octokit";
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Skeleton from "styles/Skeleton";

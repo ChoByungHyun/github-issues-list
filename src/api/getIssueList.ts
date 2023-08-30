@@ -1,7 +1,4 @@
-// api.ts
-
-import { octokit } from "config";
-import { REQUEST_INFO } from "config";
+import { octokit, REQUEST_INFO } from "config";
 import { Issue } from "type";
 
 export async function fetchGitHubIssues(page: number): Promise<Issue[]> {
@@ -14,11 +11,12 @@ export async function fetchGitHubIssues(page: number): Promise<Issue[]> {
         },
       }
     );
+    console.log(response.data);
     const fetchedIssues: Issue[] = response.data.map((issue: any) => ({
       number: issue.number,
       title: issue.title,
       user: issue.user,
-      updated_at: issue.updated_at,
+      created_at: issue.created_at,
       comments: issue.comments,
     }));
     return fetchedIssues;

@@ -15,7 +15,7 @@ export const fetchIssueDetail = async (issueNumber: string) => {
       number: response.data.number,
       title: response.data.title,
       user: response.data.user,
-      updated_at: response.data.updated_at,
+      created_at: response.data.created_at,
       comments: response.data.comments,
       image: response.data.user.avatar_url,
       body: response.data.body,
