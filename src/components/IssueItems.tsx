@@ -37,7 +37,7 @@ const IssueItems: React.FC<IssueItemsProps> = ({ issue, showAD }) => {
           <SLink to="https://www.wanted.co.kr/">
             <SBennerImg
               alt="광고이미지"
-              src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Flogo_wanted_black.png&w=110&q=100"
+              src="https://github.com/ChoByungHyun/github-issues-list/assets/102468625/cd80d4c5-11c8-4884-8ebd-1800d7118bd8"
             />
           </SLink>
         )}

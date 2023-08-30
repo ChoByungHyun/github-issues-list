@@ -1,46 +1,62 @@
-# Getting Started with Create React App
+# github-issues-list
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+깃헙에서 제공되는 API를 사용해 이슈목록을 불러오는 프로젝트입니다
 
-## Available Scripts
+# 목차
 
-In the project directory, you can run:
+- [github-issues-list](#github-issues-list)
+- [목차](#목차)
+  - [🔗 배포 링크](#-배포-링크)
+  - [⚙️ 실행 방법](#️-실행-방법)
+  - [⌛ 진행 과정](#-진행-과정)
+    - [회의 및 기록](#회의-및-기록)
+  - [📂 폴더 구조](#-폴더-구조)
+  - [🛠️ 기술 스택](#️-기술-스택)
 
-### `npm start`
+## 🔗 배포 링크
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+https://cheery-strudel-928c04.netlify.app/
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## ⚙️ 실행 방법
 
-### `npm test`
+```
+npm install
+npm run start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📂 폴더 구조
 
-### `npm run build`
+```
+project-root/
+│
+├── public/ # 정적 파일들
+│ ├── index.html
+│ └── manifest.json
+│
+├── src/ # 소스 코드
+│ ├── components/    # 재사용 컴포넌트들
+│ ├── hooks/         # custom hooks
+│ ├── api/           # api 함수들
+│ ├── pages/         # 페이지별 컴포넌트
+│ ├── router/        # 라우팅
+│ ├── App.tsx        # App 컴포넌트
+│ ├── index.tsx      # 진입점 파일
+│ └── GlobalStyle.ts # 전역 스타일 설정파일
+│
+├── .env
+├── .gitignore
+├── .prettierrc.js
+├── .eslintrc
+├── package.json
+├── tsconfig.json
+└── README.md
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🛠️ 기술 스택
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img src="https://img.shields.io/badge/Typescript-blue?style=square"/> 
+<img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=white"/> 
+<img src="https://img.shields.io/badge/styledcomponents-DB7093?style=flat-square&logo=styled-components&logoColor=white"/> <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/>
+<img src="https://img.shields.io/badge/git-F05032?style=flat&logo=git&logoColor=white">
