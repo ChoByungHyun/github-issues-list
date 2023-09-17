@@ -15,7 +15,7 @@
  
 
 ## 실행 화면
-<img width="452" alt="main_image" src="https://github.com/ChoByungHyun/time-series-chart/assets/102468625/4d3156af-4e66-48cf-b3df-6cdd49f3def2">
+<img width="452" src="https://github.com/ChoByungHyun/time-series-chart/assets/102468625/4d3156af-4e66-48cf-b3df-6cdd49f3def2" alt="main_image">
 
 
 ## 🔗 배포 링크
