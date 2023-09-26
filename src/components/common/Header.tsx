@@ -12,6 +12,7 @@ const Header = () => {
 };
 const SHeaderLayout = styled.header`
   font-size: 30px;
+  font-weight: bold;
   width: 100%;
   text-align: center;
   margin-bottom: 20px;

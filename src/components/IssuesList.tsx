@@ -5,11 +5,23 @@ import styled from "styled-components";
 import Skeleton from "styles/Skeleton";
 import { Issue } from "type";
 import { fetchGitHubIssues } from "../api/getIssueList";
+import useIntersectionObserver from "hooks/useIntersectionObserver";
+
+const TERM_OF_AD = 4;
 
 function IssuesList() {
   const [issues, setIssues] = useState<Issue[]>([]);
   const [pageNumber, setPageNumber] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(false);
+  const [ref, inView] = useIntersectionObserver({ threshold: 0.3 });
+
+  useEffect(() => {
+    fetchIssues(pageNumber);
+  }, [pageNumber]);
+
+  useEffect(() => {
+    if (inView) setPageNumber((prev) => prev + 1);
+  }, [inView]);
 
   const fetchIssues = async (page: number) => {
     setLoading(true);
@@ -18,28 +30,6 @@ function IssuesList() {
     setLoading(false);
   };
 
-  const handleScroll = () => {
-    if (
-      !loading &&
-      window.innerHeight + window.scrollY >= document.body.scrollHeight - 500
-    ) {
-      setPageNumber((prevPageNumber) => prevPageNumber + 1);
-    }
-  };
-
-  const debouncedHandleScroll = useDebounce(handleScroll, 300);
-
-  useEffect(() => {
-    window.addEventListener("scroll", debouncedHandleScroll);
-    return () => {
-      window.removeEventListener("scroll", debouncedHandleScroll);
-    };
-  }, [loading, pageNumber]);
-
-  useEffect(() => {
-    fetchIssues(pageNumber);
-  }, [pageNumber]);
-
   return (
     <SIssueLayout>
       <ul>
@@ -47,10 +37,11 @@ function IssuesList() {
           <IssueItems
             key={issue.number}
             issue={issue}
-            showAD={index >= 3 && (index - 3) % 4 === 0}
+            showAD={(index + 1) % TERM_OF_AD === 0}
           />
         ))}
         {loading && <Skeleton />}
+        {!loading && <div ref={ref} style={{ height: "10px" }}></div>}
       </ul>
     </SIssueLayout>
   );

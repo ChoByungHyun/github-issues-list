@@ -11,8 +11,8 @@ export async function fetchGitHubIssues(page: number): Promise<Issue[]> {
         },
       }
     );
-    console.log(response.data);
-    const fetchedIssues: Issue[] = response.data.map((issue: any) => ({
+
+    const fetchedIssues: Issue[] = response.data.map((issue: Issue) => ({
       number: issue.number,
       title: issue.title,
       user: issue.user,
